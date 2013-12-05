@@ -1,0 +1,501 @@
+servers = (
+  {
+    address = "localhost";
+    chatnet = "minbif";
+    port = "6667";
+    password = "XXXXX";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "::1";
+    chatnet = "minbif";
+    port = "6667";
+    password = "XXXXX";
+    use_ssl = "no";
+    ssl_verify = "no";
+  },
+  {
+    address = "irc.mozilla.org";
+    chatnet = "Mozilla";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  },
+  { address = "irc.mozilla.org"; chatnet = "Mozilla"; port = "6667"; },
+  {
+    address = "chat.freenode.net";
+    chatnet = "Freenode";
+    port = "7000";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  },
+  {
+    address = "chat.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  {
+    address = "barjavel.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  {
+    address = "pratchett.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  {
+    address = "jordan.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  {
+    address = "bartol.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  {
+    address = "lindbohm.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  {
+    address = "irc.hackerzvoice.net";
+    chatnet = "Hackerzvoice";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.hackerzvoice.net";
+    chatnet = "Hackerzvoice";
+    port = "6667";
+  },
+  {
+    address = "irc6.oftc.net";
+    chatnet = "OFTC";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.oftc.net";
+    chatnet = "OFTC";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
+  },
+  {
+    address = "iteam.org";
+    chatnet = "iTeam";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.evolu.net";
+    chatnet = "Evolu";
+    port = "6657";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "hivane.fr.eu.evolu.net";
+    chatnet = "Evolu";
+    port = "6657";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "bezons.fr.eu.evolu.net";
+    chatnet = "Evolu";
+    port = "6657";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "free-vitry.fr.eu.evolu.net";
+    chatnet = "Evolu";
+    port = "6657";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "sivit.fr.eu.evolu.net";
+    chatnet = "Evolu";
+    port = "6657";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.rhien.org";
+    chatnet = "RHIEN";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+  }
+);
+
+chatnets = {
+  minbif = {
+    type = "IRC";
+    nick = "pandark";
+    username = "pandark";
+    realname = "Pandark";
+  };
+  Mozilla = {
+    type = "IRC";
+    nick = "pandark";
+    username = "pandark";
+    realname = "Pandark";
+    autosendcmd = "/^msg NickServ identify XXXXX;wait 2000";
+  };
+  Freenode = {
+    type = "IRC";
+    nick = "pandark_";
+    username = "pandark";
+    realname = "Pandark";
+    autosendcmd = "/^msg NickServ identify XXXXX;wait 2000";
+  };
+  iTeam = {
+    type = "IRC";
+    nick = "pandark";
+    username = "pandark";
+    realname = "Pandark";
+  };
+  Hackerzvoice = {
+    type = "IRC";
+    nick = "pandark";
+    username = "pandark";
+    realname = "Pandark";
+    autosendcmd = "/^msg NickServ identify XXXXX;wait 2000";
+  };
+  Evolu = {
+    type = "IRC";
+    nick = "pandark";
+    username = "pandark";
+    realname = "Pandark";
+    autosendcmd = "/^msg NickServ identify XXXXX;wait 2000";
+  };
+  OFTC = {
+    type = "IRC";
+    nick = "pandark";
+    username = "pandark";
+    realname = "Pandark";
+    autosendcmd = "/^msg NickServ identify XXXXX;wait 2000";
+  };
+  RHIEN = {
+    type = "IRC";
+    nick = "pandark";
+    username = "pandark";
+    realname = "Pandark";
+  };
+};
+
+channels = (
+  { name = "frenchmoz"; chatnet = "Mozilla"; autojoin = "Yes"; },
+  { name = "mozfr"; chatnet = "Mozilla"; autojoin = "Yes"; },
+  { name = "devfr"; chatnet = "Mozilla"; autojoin = "Yes"; },
+  { name = "tuppervim"; chatnet = "Mozilla"; autojoin = "Yes"; },
+  { name = "womoz"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "xulfr"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "uk"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "mozfest"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "mdn"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "lagaule"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "europe"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "airmozilla"; chatnet = "Mozilla"; autojoin = "No"; },
+  { name = "framasoft"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "framalang"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "fsfe"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "fsfeurope"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "tatoeba"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "flossmanuals"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "pclinuxos"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "pclinuxos-fr"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "april"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "iteam"; chatnet = "iTeam"; autojoin = "Yes"; },
+  { name = "node.js"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "unhosted"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "raphael.js"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "express"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "e"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "bitcoin"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "indefero"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "bearstech"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "ail"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "hzv"; chatnet = "Hackerzvoice"; autojoin = "No"; },
+  { name = "debian"; chatnet = "OFTC"; autojoin = "No"; },
+  { name = "debian-fr"; chatnet = "OFTC"; autojoin = "No"; },
+  { name = "debian-amd64"; chatnet = "OFTC"; autojoin = "No"; },
+  { name = "debian-women"; chatnet = "OFTC"; autojoin = "No"; },
+  { name = "rhien"; chatnet = "RHIEN"; autojoin = "Yes"; }
+);
+
+aliases = {
+  J = "join";
+  WJOIN = "join -window";
+  WQUERY = "query -window";
+  LEAVE = "part";
+  BYE = "quit";
+  EXIT = "quit";
+  SIGNOFF = "quit";
+  DESCRIBE = "action";
+  DATE = "time";
+  HOST = "userhost";
+  LAST = "lastlog";
+  SAY = "msg *";
+  WI = "whois";
+  WII = "whois $0 $0";
+  WW = "whowas";
+  W = "who";
+  N = "names";
+  M = "msg";
+  T = "topic";
+  C = "clear";
+  CL = "clear";
+  K = "kick";
+  KB = "kickban";
+  KN = "knockout";
+  BANS = "ban";
+  B = "ban";
+  MUB = "unban *";
+  UB = "unban";
+  IG = "ignore";
+  UNIG = "unignore";
+  SB = "scrollback";
+  UMODE = "mode $N";
+  WC = "window close";
+  WN = "window new hide";
+  SV = "say Irssi $J ($V) - http://irssi.org/";
+  GOTO = "sb goto";
+  CHAT = "dcc chat";
+  RUN = "SCRIPT LOAD";
+  CALC = "exec - if command -v bc >/dev/null 2>&1\\; then printf '%s=' '$*'\\; echo '$*' | bc -l\\; else echo bc was not found\\; fi";
+  SBAR = "STATUSBAR";
+  INVITELIST = "mode $C +I";
+  Q = "QUERY";
+  "MANUAL-WINDOWS" = "set use_status_window off;set autocreate_windows off;set autocreate_query_level none;set autoclose_windows off;set reuse_unused_windows on;save";
+  EXEMPTLIST = "mode $C +e";
+  ATAG = "WINDOW SERVER";
+  UNSET = "set -clear";
+  RESET = "set -default";
+  GHOST = "msg nickserv $*";
+  SVSNICK = "quote svsnick";
+  SLAP = "me slaps $* around with a large trout.";
+  SLAPFR = "me gifle $0 avec une grosse truite.";
+  SLAPFR2 = "me gifle $0 avec un gros saumon.";
+  SLAPEO = "me batas $0on per granda truto.";
+  SYSKOSAY = "say [mode sysko says]*$*[/mode]";
+  NELSON = "me pointe $0 du doigt : Ah ah ! »";
+  JAWAY = "away -one minbif $*";
+  CLEARALL = "foreach window /scrollback clear";
+};
+
+statusbar = {
+  # formats:
+  # when using {templates}, the template is shown only if it's argument isn't
+  # empty unless no argument is given. for example {sb} is printed always,
+  # but {sb $T} is printed only if $T isn't empty.
+
+  items = {
+    # start/end text in statusbars
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+
+    # treated "normally", you could change the time/user name to whatever
+    time = "{sb $Z}";
+    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
+
+    # treated specially .. window is printed with non-empty windows,
+    # window_empty is printed with empty windows
+    window = "{sb $winref:$tag/$itemname{sbmode $M}}";
+    window_empty = "{sb $winref{sbservertag $tag}}";
+    prompt = "{prompt $[.15]itemname}";
+    prompt_empty = "{prompt $winname}";
+    topic = " $topic";
+    topic_empty = " Irssi v$J - http://www.irssi.org";
+
+    # all of these treated specially, they're only displayed when needed
+    lag = "{sb Lag: $0-}";
+    act = "{sb Act: $0-}";
+    more = "-- more --";
+  };
+
+  # there's two type of statusbars. root statusbars are either at the top
+  # of the screen or at the bottom of the screen. window statusbars are at
+  # the top/bottom of each split window in screen.
+  default = {
+    # the "default statusbar" to be displayed at the bottom of the window.
+    # contains all the normal items.
+    window = {
+      disabled = "no";
+
+      # window, root
+      type = "window";
+      # top, bottom
+      placement = "bottom";
+      # number
+      position = "1";
+      # active, inactive, always
+      visible = "active";
+
+      # list of items in statusbar in the display order
+      items = {
+        barstart = { priority = "100"; };
+        time = { };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        act = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    # statusbar to use in inactive split windows
+    window_inact = {
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "inactive";
+      items = {
+        barstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    # we treat input line as yet another statusbar :) It's possible to
+    # add other items before or after the input line item.
+    prompt = {
+      type = "root";
+      placement = "bottom";
+      # we want to be at the bottom always
+      position = "100";
+      visible = "always";
+      items = {
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+        # treated specially, this is the real input line.
+        input = { priority = "10"; };
+      };
+    };
+
+    # topicbar
+    topic = {
+      type = "root";
+      placement = "top";
+      position = "1";
+      visible = "always";
+      items = {
+        topicbarstart = { priority = "100"; };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+settings = {
+  core = {
+    real_name = "Pandark";
+    user_name = "pandark";
+    nick = "pandark";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = {
+    autolog = "yes";
+    autolog_path = "~/.irssi/logs/$tag/$0.log";
+    term_charset = "utf-8";
+  };
+  "irc/dcc" = {
+    dcc_download_path = "~/.irssi/dcc";
+    dcc_upload_path = "~/.irssi/dcc";
+  };
+};
+completions = { s = { value = "Salut"; }; };
+ignores = (
+  { mask = "UnGarage"; level = "ALL"; },
+  { level = "ACTIONS"; pattern = "(^is (away|back))"; regexp = "yes"; }
+);
+hilights = ( { text = "pandark"; nick = "no"; word = "no"; } );
+keyboard = (
+  { key = "^R"; id = "command"; data = "history_search "; },
+  { key = "^L"; id = "command"; data = "clear "; },
+  { key = "meta-a"; id = "change_window"; data = "11"; },
+  { key = "meta-p"; id = "change_window"; data = "20"; },
+  { key = "meta-m"; id = "change_window"; data = "30"; },
+  { key = "meta-Z"; id = "change_window"; data = "31"; },
+  { key = "meta-z"; id = "change_window"; data = "12"; },
+  { key = "meta-s"; id = "change_window"; data = "22"; },
+  { key = "meta-d"; id = "change_window"; data = "23"; },
+  { key = "meta-f"; id = "change_window"; data = "24"; },
+  { key = "meta-g"; id = "change_window"; data = "25"; },
+  { key = "meta-h"; id = "change_window"; data = "26"; },
+  { key = "meta-j"; id = "change_window"; data = "27"; },
+  { key = "meta-k"; id = "change_window"; data = "28"; },
+  { key = "meta-l"; id = "change_window"; data = "29"; },
+  { key = "meta-A"; id = "change_window"; data = "32"; },
+  { key = "meta-E"; id = "change_window"; data = "33"; },
+  { key = "meta-R"; id = "change_window"; data = "34"; },
+  { key = "meta-T"; id = "change_window"; data = "35"; },
+  { key = "meta-Y"; id = "change_window"; data = "36"; },
+  { key = "meta-U"; id = "change_window"; data = "37"; },
+  { key = "meta-I"; id = "change_window"; data = "38"; },
+  { key = "meta-O"; id = "change_window"; data = "39"; },
+  { key = "meta-P"; id = "change_window"; data = "40"; },
+  { key = "meta-Q"; id = "change_window"; data = "41"; },
+  { key = "meta-q"; id = "change_window"; data = "21"; },
+  { key = "meta-S"; id = "change_window"; data = "42"; },
+  { key = "meta-D"; id = "change_window"; data = "43"; },
+  { key = "meta-F"; id = "change_window"; data = "44"; },
+  { key = "meta-G"; id = "change_window"; data = "45"; },
+  { key = "meta-H"; id = "change_window"; data = "46"; },
+  { key = "meta-J"; id = "change_window"; data = "47"; },
+  { key = "meta-K"; id = "change_window"; data = "48"; },
+  { key = "meta-L"; id = "change_window"; data = "49"; },
+  { key = "meta-M"; id = "change_window"; data = "50"; },
+  { key = "meta-&"; id = "change_window"; data = "1"; },
+  { key = "meta-é"; id = "change_window"; data = "2"; },
+  { key = "meta-\""; id = "change_window"; data = "3"; },
+  { key = "meta-'"; id = "change_window"; data = "4"; },
+  { key = "meta-("; id = "change_window"; data = "5"; },
+  { key = "meta--"; id = "change_window"; data = "6"; },
+  { key = "meta-§"; id = "change_window"; data = "6"; },
+  { key = "meta-è"; id = "change_window"; data = "7"; },
+  { key = "meta-!"; id = "change_window"; data = "8"; },
+  { key = "meta-_"; id = "change_window"; data = "8"; },
+  { key = "meta-ç"; id = "change_window"; data = "9"; },
+  { key = "meta-à"; id = "change_window"; data = "10"; },
+  { key = "meta-x"; id = "command"; data = "window last"; },
+  { key = "meta-N"; id = "command"; data = "/mark"; }
+);
+logs = { };
