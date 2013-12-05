@@ -1,0 +1,18 @@
+[submodule "fugitive.vim"]
+	path = .vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "python_match.vim"]
+	path = .vim/bundle/python_match
+	url = git://github.com/vim-scripts/python_match.vim.git
+[submodule "repeat.vim"]
+	path = .vim/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "snipmate.vim"]
+	path = .vim/bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "surround.vim"]
+	path = .vim/bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "kalahari.vim"]
+	path = .vim/bundle/theme-kalahari
+	url = git://github.com/fabi1cazenave/kalahari.vim.git
