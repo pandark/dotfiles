@@ -16,3 +16,6 @@
 [submodule "kalahari.vim"]
 	path = .vim/bundle/theme-kalahari
 	url = git://github.com/fabi1cazenave/kalahari.vim.git
+[submodule "syntastic.vim"]
+	path = .vim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
