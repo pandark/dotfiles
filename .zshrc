@@ -76,3 +76,4 @@ export MAIL
 
 rm -f ~/.zcompdump-e*r*p*-*
 
+\alias alias='lockscreen "Ah ah, noob !" && rm ~/.lockscreen_log'
