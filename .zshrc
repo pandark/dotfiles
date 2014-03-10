@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:$HOME/.brew/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -67,13 +67,8 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/us
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-USER=`/usr/bin/whoami`
-export USER
-GROUP=`/usr/bin/id -gn $user`
-export GROUP
-MAIL="$USER@student.42.fr"
-export MAIL
+export USER=`/usr/bin/whoami`
+export GROUP=`/usr/bin/id -gn $user`
+export MAIL="$USER@student.42.fr"
 
-rm -f ~/.zcompdump-e*r*p*-*
-
-\alias alias='lockscreen "Ah ah, noob !" && rm ~/.lockscreen_log'
+\alias alias='echo alias'

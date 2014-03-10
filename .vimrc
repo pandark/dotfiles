@@ -144,7 +144,6 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 inoremap <home> <nop>
 inoremap <End> <nop>
-inoremap <Up> <nop>
 
 set backspace=indent,eol,start   " allow backspacing over everything in insert mode
 set formatoptions=cqrt           " comments newline when already in a comment
