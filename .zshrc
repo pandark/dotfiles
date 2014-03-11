@@ -72,4 +72,5 @@ export USER=`/usr/bin/whoami`
 export GROUP=`/usr/bin/id -gn $user`
 export MAIL="$USER@student.42.fr"
 
-\alias alias='echo alias'
+\alias alias='echo zsh: command not found: alias;'
+\alias gdb='lldb'
