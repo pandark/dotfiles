@@ -71,6 +71,7 @@ set sidescrolloff=5
 
 " search
 set incsearch                    " incremental searching
+set ignorecase
 set smartcase                    " if no caps in patern, not case sensitive
 " if the terminal has colors
 " switch syntax highlighting on
