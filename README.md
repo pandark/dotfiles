@@ -30,11 +30,3 @@ cd ..
 rm -Rf .vim && rm -f .vimrc && rm -f .oh-my-zsh && rm -f .zshrc && rm -f .gdbinit
 ln -s .dotfiles/.vim && ln -s .dotfiles/.vimrc && ln -s .dotfiles/.oh-my-zsh && ln -s .dotfiles/.zshrc && ln -s .dotfiles/.gdbinit
 ```
-
-
-## Minifix
-
-* Xquartz
-``` sh
-mkdir -p /nfs/zfs-student-5/users/2013/apachkof/Library/Logs/X11/
-```
