@@ -7,9 +7,6 @@
 [submodule "repeat.vim"]
 	path = .vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
-[submodule "snipmate.vim"]
-	path = .vim/bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule "surround.vim"]
 	path = .vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
@@ -22,3 +19,6 @@
 [submodule "oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
