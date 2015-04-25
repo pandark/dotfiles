@@ -1,4 +1,4 @@
-42 dotfiles
+dotfiles
 ===========
 
 ## Install
@@ -7,13 +7,7 @@
 
 ``` sh
 git clone https://github.com/pandark/dotfiles.git .dotfiles
-```
-
-* Checkout the 42 branch
-
-``` sh
 cd .dotfiles
-git checkout 42
 ```
 
 * Clone submodules
