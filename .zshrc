@@ -73,6 +73,8 @@ export USER=`/usr/bin/whoami`
 export GROUP=`/usr/bin/id -gn $user`
 export MAIL="$USER@student.42.fr"
 
+find ~ -maxdepth 1 -name ".zcompdump*" -delete
+
 \alias alias='echo zsh: command not found: alias;'
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     \alias l='ls -lA --color=auto'
