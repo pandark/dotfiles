@@ -83,3 +83,4 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     \alias l='ls -lAG'
 fi
 \alias vimclean='find ~/.vim/tmp -maxdepth 1 -type f -delete'
+\alias npmclean='rm -Rf "/nfs/zfs-student-5/users/2013/apachkof/.npm"'
