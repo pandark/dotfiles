@@ -1,0 +1,2 @@
+# clang -g3 -fno-omit-frame-pointer -fsanitize=address -O1
+breakpoint set --name '__asan_report_error'
