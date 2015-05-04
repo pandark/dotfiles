@@ -21,6 +21,6 @@ git submodule update
 
 ``` sh
 cd ..
-rm -Rf .vim && rm -f .vimrc && rm -f .oh-my-zsh && rm -f .zshrc && rm -f .gdbinit
-ln -s .dotfiles/.vim && ln -s .dotfiles/.vimrc && ln -s .dotfiles/.oh-my-zsh && ln -s .dotfiles/.zshrc && ln -s .dotfiles/.gdbinit
+rm -Rf .vim && rm -f .vimrc && rm -f .oh-my-zsh && rm -f .zshrc && rm -f .gdbinit && rm -f .lldbinit
+ln -s .dotfiles/.vim && ln -s .dotfiles/.vimrc && ln -s .dotfiles/.oh-my-zsh && ln -s .dotfiles/.zshrc && ln -s .dotfiles/.gdbinit && ln -s .dotfiles/.lldbinit
 ```
