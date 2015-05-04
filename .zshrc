@@ -82,3 +82,4 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     \alias gdb='lldb'
     \alias l='ls -lAG'
 fi
+\alias vimclean='find ~/.vim/tmp -maxdepth 1 -type f -delete'
