@@ -74,4 +74,9 @@ export GROUP=`/usr/bin/id -gn $user`
 export MAIL="$USER@student.42.fr"
 
 \alias alias='echo zsh: command not found: alias;'
-\alias gdb='lldb'
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    \alias l='ls -lA --color=auto'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    \alias gdb='lldb'
+    \alias l='ls -lAG'
+fi
