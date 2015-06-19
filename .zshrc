@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 #export PATH="$PATH:/usr/texbin:$HOME/.brew/bin"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:$HOME/.brew/bin:/nfs/zfs-student-5/users/2013/apachkof/.npm-packages/bin"
+export PATH="$HOME/.brew/bin:$HOME/.npm-packages/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
 export NODE_PATH="$HOME/.npm"
 # export MANPATH="/usr/local/man:$MANPATH"
 
