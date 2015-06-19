@@ -73,7 +73,7 @@ export USER=`/usr/bin/whoami`
 export GROUP=`/usr/bin/id -gn $user`
 export MAIL="$USER@student.42.fr"
 
-find ~ -maxdepth 1 -name ".zcompdump*" -delete
+find $HOME -maxdepth 1 -name ".zcompdump*" -delete
 
 \alias alias='echo zsh: command not found: alias;'
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -82,5 +82,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     \alias gdb='lldb'
     \alias l='ls -lAG'
 fi
-\alias vimclean='find ~/.vim/tmp -maxdepth 1 -type f -delete'
-\alias npmclean='rm -Rf "/nfs/zfs-student-5/users/2013/apachkof/.npm"'
+\alias vimclean='find '$HOME'/.vim/tmp -maxdepth 1 -type f -delete'
+\alias npmclean='rm -Rf "'$HOME'/.npm"'
