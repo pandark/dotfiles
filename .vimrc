@@ -42,7 +42,8 @@ set hidden                       " allow switching edited buffers without saving
 
 " break long lines visually (not actual lines)
 set wrap linebreak
-set tw=0 wm=0
+set textwidth=0
+set wrapmargin=0
 
 "set autowrite                   " Auto-save before :next, :make, etc.
 
@@ -59,7 +60,6 @@ if exists('+colorcolumn')
 "  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-set textwidth=0
 "set whichwrap=<,>,h,l
 "map <C-UP> g k
 "map <C-UP> g k
