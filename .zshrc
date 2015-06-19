@@ -84,3 +84,17 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 \alias vimclean='find '$HOME'/.vim/tmp -maxdepth 1 -type f -delete'
 \alias npmclean='rm -Rf "'$HOME'/.npm"'
+
+#OCaml
+command -v foo >/dev/null 2>&1 && RLWRAP_INSTALLED=true
+if [ RLWRAP_INSTALLED ]; then
+    \alias ocaml="rlwrap ocaml"
+    \alias ocalm="rlwrap ocaml"
+fi
+
+if [ -f $HOME/.opam/opam-init/init.zsh ]; then
+    source $HOME/.opam/opam-init/init.zsh
+fi
+
+\alias v="vi *.ml"
+\alias o="ocamlopt *.ml"
