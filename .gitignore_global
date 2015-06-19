@@ -1,0 +1,26 @@
+# Compiled source files
+*.a
+*.o
+*.so
+a.out
+*.class
+*.com
+*.pyc
+# ocamlopt
+*.cmi
+*.cmx
+*.cmo
+
+# Editor backups
+\#*#
+*~
+.*.swp
+
+# OS-generated crap
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
