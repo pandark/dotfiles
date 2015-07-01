@@ -98,3 +98,5 @@ fi
 
 #\alias v="vi *.ml"
 #\alias o="ocamlopt *.ml"
+
+\alias gdb='lldb'
