@@ -96,5 +96,5 @@ if [ -f $HOME/.opam/opam-init/init.zsh ]; then
     source $HOME/.opam/opam-init/init.zsh
 fi
 
-\alias v="vi *.ml"
-\alias o="ocamlopt *.ml"
+#\alias v="vi *.ml"
+#\alias o="ocamlopt *.ml"
