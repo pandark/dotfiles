@@ -1,0 +1,3 @@
+# Exclut le dossier VMs
+.meteor
+# Exclut tous les fichiers se terminant par .out
