@@ -21,7 +21,7 @@ git submodule update
 
 ``` sh
 cd ..
-for f in ".vim" ".vimrc" ".zshrc" ".gdbinit" ".lldbinit" ".oh-my-zsh"; do
+for f in ".vim" ".vimrc" ".zshrc" ".gdbinit" ".lldbinit" ".exclude" ".oh-my-zsh"; do
     rm -Rf $f;
     ln -s .dotfiles/$f;
 done
