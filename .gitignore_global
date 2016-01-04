@@ -1,20 +1,43 @@
 # Compiled source files
 *.a
 *.o
+*.ko
 *.so
 a.out
 *.class
 *.com
 *.pyc
+*.slo
+*.lo
+*.obj
+*.elf
+*.gch
+*.pch
+*.dylib
+*.dll
+*.lai
+*.la
+*.lib
 # ocamlopt
 *.cmi
 *.cmx
 *.cmo
+*.cma
+*.annot
+*.cmxs
+*.cmxa
+_build/
+*.byte
+*.native
+
+# Debug files
+*.dSYM/
 
 # Editor backups
 \#*#
 *~
 .*.swp
+.netrwhist
 
 # OS-generated crap
 .DS_Store
