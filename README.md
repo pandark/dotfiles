@@ -72,8 +72,8 @@ echo -e "fi" >> ~/.zshrc
 
 ``` sh
 cd ~/
-for f in ".vim" ".vimrc" ".gdbinit" ".lldbinit" ".exclude" ".oh-my-zsh"; do
+for f in ".vim" ".vimrc" ".gdbinit" ".lldbinit" ".oh-my-zsh" ".npmrc" ".config" ".gitconfig" ".gitignore_global"; do
     rm -Rf $f;
-    ln -s .dotfiles/$f;
+    ln -s ~/.remote_home/.dotfiles/$f;
 done
 ```
