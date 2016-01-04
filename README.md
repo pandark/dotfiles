@@ -60,7 +60,7 @@ git submodule update
 echo -e "if [ ! -d ~/.remote_home ]; then" > ~/.zshrc
 echo -e "    mkdir ~/.remote_home" >> ~/.zshrc
 echo -e "fi" >> ~/.zshrc
-echo -e "if [ -z $(mount | grep ".remote_home") ]; then" >> ~/.zshrc
+echo -e "if [ -z \$(mount | grep ".remote_home") ]; then" >> ~/.zshrc
 echo -e "    mount -t nfs zfs-student-1:/tank/sgoinfre/goinfre/Perso/Students/$(whoami) ~/.remote_home" >> ~/.zshrc
 echo -e "fi" >> ~/.zshrc
 echo -e "if [ -f ~/.remote_home/.dotfiles/.zshrc ]; then" >> ~/.zshrc
