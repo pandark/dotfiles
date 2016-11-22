@@ -1,22 +1,43 @@
 #!/usr/bin/env zsh
 
-if [ -z "$USER" ]; then
-    export USER="$(id -un)"
-fi
-if [ -z "$FULLNAME" ]; then
+export USER="$(id -un)"
+export GROUP=$(id -gn $USER)
+
+if [ "$(hostname -f | cut -d'.' -f2,3)" = "42.fr" ]; then
+    export AT_42=true
     export FULLNAME="$(id -F)"
-fi
-if [ -z "$MAIL" ]; then
     export MAIL="$USER@student.42.fr"
-fi
-if [ -z "$GROUP" ]; then
-    export GROUP=$(id -gn $USER)
+else
+    if [ $# -eq 2 ]; then
+        FULLNAME=$1
+        MAIL=$2
+    else
+        echo "Full name:"
+        read FULLNAME
+        echo "Email:"
+        read MAIL
+    fi
+    export FULLNAME
+    export MAIL
 fi
 
-export NPM_PACKAGES=${HOME}/.npm-packages
-export NODE_PATH="${NPM_PACKAGES}/lib/node_modules:${NODE_PATH}"
-export PATH="${HOME}/.brew/bin:${NPM_PACKAGES}/bin:${HOME}/.meteor:/usr/local/munki:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
-export HOMEBREW_CACHE="${HOME}/.tmp/brew_cache"
+if [ ${AT_42} ]; then
+    export HOMEBREW_CACHE="${HOME}/.tmp/brew_cache"
+fi
+
+# NodeJs
+if [ "${USER}" != "root" ]; then
+    export NPM_PACKAGES=${HOME}/.npm-packages
+    export NODE_PATH="${NPM_PACKAGES}/lib/node_modules:${NODE_PATH}"
+fi
+
+if [ ${AT_42} ]; then
+    PATH="${HOME}/.brew/bin:${NPM_PACKAGES}/bin:${HOME}/.meteor:/usr/local/munki:/opt/X11/bin"
+else
+    PATH="${HOME}/bin:${NPM_PACKAGES}/bin:${HOME}/.meteor"
+fi
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+#export MANPATH="${MANPATH}"
 
 if [ -z "$(git config --global user.name)" ]; then
     git config --global user.name "$FULLNAME"
@@ -43,136 +64,60 @@ fi
 #    git config --global alias.dt difftool
 #fi
 
-for f in ".zshrc" ".config/nvim/init.vim" ".config/agrc" ".config/redshift.conf" ".gitignore_global" ".gdbinit" ".lldbinit"; do
+mkdir -p "${HOME}/.tmp/nvim"
+if [ ${AT_42} ]; then
+    mkdir -p "${HOMEBREW_CACHE}"
+fi
+
+if [ -n $(whence nvim 2>/dev/null) ]; then
+    VIMRC=".config/nvim/init.vim"
+else
+    VIMRC=".vimrc"
+fi
+for f in ".zshrc" ".bashrc" "${VIMRC}" ".config/agrc" ".config/redshift.conf" ".gitignore_global" ".gdbinit" ".lldbinit"; do
     if [ ! -f "${HOME}/${f}" ]; then
         curl -fLo "${HOME}/${f}" --create-dirs "https://raw.githubusercontent.com/pandark/setup_42/master/.dotfiles/${f}"
     fi
 done
 
-if [ ! -d "${HOME}/.brew" ]; then
-    mkdir ${HOME}/.brew && \
-        curl -L https://github.com/Homebrew/homebrew/tarball/master | \
-        tar xz --strip 1 -C ${HOME}/.brew
+sed -i "" "s/mail_placeholder/${MAIL}/;s/fullname_placeholder/${FULLNAME}/" .zshrc
+sed -i "" "s/mail_placeholder/${MAIL}/;s/fullname_placeholder/${FULLNAME}/" .bashrc
+
+if [ ${AT_42} ]; then
+    if [ -d "${HOME}/.brew" ]; then
+        mkdir ${HOME}/.brew && \
+            curl -L https://github.com/Homebrew/homebrew/tarball/master | \
+            tar xz --strip 1 -C ${HOME}/.brew
         brew update
         brew upgrade
+    fi
+
+    if [ ! -f "${HOME}/.brew/share/zsh/site-functions/_brew" ] ; then
+        curl -Lo "${HOME}/.brew/share/zsh/site-functions/_brew" https://raw.githubusercontent.com/Homebrew/homebrew/master/Library/Contributions/brew_zsh_completion.zsh
+    fi
+
+    if [ -z "$(brew list | grep -w neovim)" ]; then
+        brew tap neovim/neovim
+        brew install --HEAD neovim
+    fi
+
+    for software in "tree" "pstree" "the_silver_searcher" "htop-osx" "wget" "valgrind" "ranger" "redshift" "node" "python" "python3"; do
+        if [ -z "$(brew list | grep -w $software)" ]; then
+            brew install $software
+        fi
+    done
 fi
 
-if [ ! -f "${HOME}/.brew/share/zsh/site-functions/_brew" ] ; then
-     curl -Lo "${HOME}/.brew/share/zsh/site-functions/_brew" https://raw.githubusercontent.com/Homebrew/homebrew/master/Library/Contributions/brew_zsh_completion.zsh
-fi
-
-if [ -z "$(brew list | grep -w neovim)" ]; then
-    brew tap neovim/neovim
-    brew install --HEAD neovim
-
+if [ -n "$(whence nvim 2>/dev/null)" ]; then
     curl -fLo ${HOME}/.config/nvim/autoload/plug.vim \
         --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    nvim +PlugInstall +qall
+else
+    curl -fLo ${HOME}/.vim/autoload/plug.vim \
+        --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    vim +PlugInstall +qall
 fi
 
-for software in "tree" "pstree" "the_silver_searcher" "htop-osx" "wget" "valgrind" "ranger" "redshift" "node" "python" "python3"; do
-    if [ -z "$(brew list | grep -w $software)" ]; then
-        brew install $software
-    fi
-done
-
-if [ -n "$(whence npm)" ]; then
+if [ "${USER}" != "root" -a -n "$(whence npm)" ]; then
     npm config set prefix '${HOME}/.npm-packages'
 fi
-
-######################
-#        OS X        #
-######################
-#
-#### dock ###
-## remove all application
-#defaults delete com.apple.dock persistent-apps
-#defaults delete com.apple.dock persistent-others
-#
-## add application
-#defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/System Preferences.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-#defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Firefox.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-#defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/iTerm 2.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-#defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Slack.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-#
-## change dock size
-#defaults write com.apple.dock tilesize -int 40
-#
-## set the dock on the right of the screen
-#defaults write com.apple.dock orientation -string "bottom"
-#
-## do not rearrange space based on recent use
-#defaults write com.apple.dock mru-spaces -bool false
-#
-## restart dock to apply changes
-#killall Dock
-#
-#### dock end ###
-#
-#### finder ###
-#
-## set preferred view style
-#defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
-#
-## New window points to home
-#defaults write com.apple.finder NewWindowTarget -string "PfHm"
-#
-## Avoid creating .DS_Store files on network volumes
-#defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-#
-## show path bar
-#defaults write com.apple.finder ShowPathbar -int 1
-#
-## show Library folder
-#chflags nohidden ~/Library/
-#
-#### finder end ###
-#
-#### mouse ###
-#
-## scroll not "natural"
-#defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-#
-#### mouse end ###
-#
-#### spotlight ###
-#
-## remove everything from spotlight but applications
-#defaults write com.apple.spotlight orderedItems -array \
-#	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
-#	'{"enabled" = 0;"name" = "SYSTEM_PREFS";}' \
-#	'{"enabled" = 0;"name" = "DIRECTORIES";}' \
-#	'{"enabled" = 0;"name" = "PDF";}' \
-#	'{"enabled" = 0;"name" = "FONTS";}' \
-#	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
-#	'{"enabled" = 0;"name" = "MESSAGES";}' \
-#	'{"enabled" = 0;"name" = "CONTACT";}' \
-#	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
-#	'{"enabled" = 0;"name" = "IMAGES";}' \
-#	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
-#	'{"enabled" = 0;"name" = "MUSIC";}' \
-#	'{"enabled" = 0;"name" = "MOVIES";}' \
-#	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-#	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-#	'{"enabled" = 0;"name" = "SOURCE";}' \
-#	'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-#	'{"enabled" = 0;"name" = "MENU_OTHER";}' \
-#	'{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-#	'{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
-#	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
-#	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
-#
-#### spotlight end ###
-#
-#### menu bar ###
-#
-## display hour in 24h format
-#defaults write com.apple.menuextra.clock DateFormat -string "EEE dd/MM/yyyy HH:mm"
-#defaults write NSGlobalDomain AppleICUForce12HourTime -bool false
-#
-#### menu bar end ###
-#
-#### security ###
-#
-#defaults write com.apple.screensaver askForPassword -int 1
-#
-#### security end ###
