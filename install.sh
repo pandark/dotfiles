@@ -111,7 +111,9 @@ if [ ${AT_42} ]; then
             brew install ${software}
         fi
     done
+fi
 
+if [ ${AT_42} -o "${USER}" = 'root' ]; then
     for software in 'eslint' 'jshint'; do
         if [ -z "$(npm install -g | grep -w ${software})" ]; then
             npm install -g ${software}
