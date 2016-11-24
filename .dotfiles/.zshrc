@@ -303,7 +303,7 @@ fi
 #   START PROGRAMS    #
 #######################
 
-if [ -n "$(whence redshift >/dev/null)" -a -z "$(pgrep redshift)" ] ; then
+if [ -n "$(whence redshift 2>/dev/null)" -a -z "$(pgrep redshift)" ] ; then
     echo "launching redshift"
     nohup redshift 2>&1 >/dev/null &
     alias redshift_stop='kill $(pgrep redshift)'
