@@ -1,5 +1,7 @@
 set nocompatible
-set encoding=utf-8
+if ! has('nvim') " vim
+  set encoding=utf-8
+endif
 set t_Co=256
 set background=dark
 
