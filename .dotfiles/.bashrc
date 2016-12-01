@@ -34,6 +34,9 @@ fi
 if [ "${USER}" != "root" ]; then
     export NPM_PACKAGES=${HOME}/.npm-packages
     export NODE_PATH="${NPM_PACKAGES}/lib/node_modules:${NODE_PATH}"
+else
+    unset NPM_PACKAGES
+    unset NODE_PATH
 fi
 
 if [ ${AT_42} ]; then
