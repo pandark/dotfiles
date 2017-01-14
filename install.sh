@@ -91,7 +91,7 @@ sed -i '' "s/mail_placeholder/${MAIL}/;s/fullname_placeholder/${FULLNAME}/" "${S
 if [ ${AT_42} ]; then
     if [ -d "${HOME}/.brew" ]; then
         mkdir ${HOME}/.brew && \
-            curl -L https://github.com/Homebrew/homebrew/tarball/master | \
+            curl -L https://github.com/Homebrew/brew/tarball/master | \
             tar xz --strip 1 -C ${HOME}/.brew
         brew update
         brew upgrade
